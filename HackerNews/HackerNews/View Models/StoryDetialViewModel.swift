@@ -14,14 +14,13 @@ class StoryDetialViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     func fetchStoryById(_ storyId:Int) {
-        
+       
         self.cancellable =  WebService().getStoryById(storyId: storyId)
             .catch { _ in Just(Story.placeholder())}
             .sink(receiveCompletion: {_ in }, receiveValue: { story in
                 self.story =  story
             })
     }
-    
 }
 
 extension StoryDetialViewModel {

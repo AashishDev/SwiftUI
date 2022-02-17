@@ -10,6 +10,12 @@ import Combine
 
 struct StoryListView: View {
     
+    init() {
+        //UINavigationBar.appearance().backgroundColor = .systemBlue
+        //UINavigationBar.appearance().largeTitleTextAttributes = [
+              //  .foregroundColor: UIColor.white]
+    }
+    
     @ObservedObject private var storyListVM =  StoryListViewModel()
     var body: some View {
         
@@ -17,11 +23,13 @@ struct StoryListView: View {
             List(self.storyListVM.stories, id: \.id) { storyVM in
                 
                 NavigationLink(destination: StoryDetailView(storyId: storyVM.id)) {
-                    Text("\(storyVM.id)")
+                    Text("\(storyVM.title)")
                 }
             }
-        }.navigationBarTitle("Hacker News")
+            .navigationBarTitle("Hacker News")
+        }
     }
+
 }
 
 struct StoryListView_Previews: PreviewProvider {

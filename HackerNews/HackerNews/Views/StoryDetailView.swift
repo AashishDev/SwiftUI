@@ -19,7 +19,8 @@ struct StoryDetailView: View {
     
     var body: some View {
         VStack {
-        Text(self.storyDetialVM.title)
+            Text(self.storyDetialVM.title).foregroundColor(.black).bold()
+            Webview(url: self.storyDetialVM.url)
         }.onAppear {
             self.storyDetialVM.fetchStoryById(self.storyId)
         }
