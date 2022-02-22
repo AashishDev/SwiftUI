@@ -12,4 +12,8 @@ extension URL {
         return URL(string: "https://www.omdbapi.com/?s=\(name)&apikey=\(Constant.API_KEY)")
     }
     
+    static func movieById(_ id:String) -> URL? {
+        return URL(string: "https://www.omdbapi.com/?i=\(id)&apikey=\(Constant.API_KEY)")
+    }
+    
 }

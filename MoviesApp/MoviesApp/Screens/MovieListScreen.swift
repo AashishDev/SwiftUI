@@ -28,10 +28,10 @@ struct MovieListScreen: View {
             
             //Handle Loading State
             if self.movieListVM.loadingState == .loading {
-                
+                LoadingView()
             }
             else if self.movieListVM.loadingState == .failed {
-                
+                FailedView()
             }
             else if self.movieListVM.loadingState == .sucess {
                 MovieListView(movies: self.movieListVM.movies)

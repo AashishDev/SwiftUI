@@ -13,7 +13,10 @@ struct MovieListView: View {
     var body: some View {
         
         List(movies,id:\.imdbid) { movie in
-            MovieCell(movie: movie)
+            
+            NavigationLink(destination: MovieDetailScreen(imdbId: movie.imdbid)) {
+                MovieCell(movie: movie)
+            }
         }
     }
 }
